@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.example.test22byte.KEY
+import com.example.test22byte.R
 import com.example.test22byte.basefragment.BaseFragment
 import com.example.test22byte.databinding.FragmentResultBinding
 import com.example.test22byte.info.result
@@ -22,10 +23,21 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(
         adapter = ResultAdapter()
 
         binding.recyclerView.adapter = adapter
-
         adapter.submitList(result)
 
         binding.countCorrectAnswer.text =
-            "Правильных ответов: ${arguments?.getInt(KEY, 20).toString()}"
+            "${getString(R.string.correct_answer)}: ${arguments?.getInt(KEY, 20).toString()}"
+
+        binding.buttonRestart.setOnClickListener {
+            result.clear()
+            goToStartFragment()
+        }
+    }
+
+    private fun goToStartFragment() {
+        fragmentManager
+            ?.beginTransaction()
+            ?.replace(R.id.fragment_container, HomeFragment())
+            ?.commit()
     }
 }

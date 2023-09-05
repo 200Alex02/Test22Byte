@@ -1,7 +1,6 @@
 package com.example.test22byte.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.test22byte.KEY
@@ -17,8 +16,6 @@ class StartFragment : BaseFragment<FragmentStartBinding>(
 ) {
 
     private lateinit var viewModel: QuizViewModel
-    private var correct = 0
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -30,15 +27,15 @@ class StartFragment : BaseFragment<FragmentStartBinding>(
 
         updateUI()
 
-        binding.image1.setOnClickListener {
+        binding.checkbox1.setOnClickListener {
             viewModel.checkAnswer(0)
         }
 
-        binding.image2.setOnClickListener {
+        binding.checkbox2.setOnClickListener {
             viewModel.checkAnswer(1)
         }
 
-        binding.image3.setOnClickListener {
+        binding.checkbox3.setOnClickListener {
             viewModel.checkAnswer(2)
         }
 
@@ -50,6 +47,8 @@ class StartFragment : BaseFragment<FragmentStartBinding>(
                 bundle.putInt(KEY, viewModel.getCorrectAnswersCount())
                 showResults(bundle = bundle)
             }
+
+            resetCheckBox()
         }
     }
 
@@ -61,27 +60,6 @@ class StartFragment : BaseFragment<FragmentStartBinding>(
         binding.image3.setImageResource(currentQuestion.picture[2])
     }
 
-    /*private fun checkAnswer(selectedAnswerIndex: Int) {
-        val currentQuestion = viewModel.getQuestion(viewModel.getCurrentQuestionIndex())
-        if (selectedAnswerIndex == currentQuestion.correctAnswer) {
-            correct++
-            viewModel.incrementCorrectAnswersCount()
-        }
-        Log.i("1", "${viewModel.getCorrectAnswersCount()}")
-        Log.i("2", "$correct")
-        result.add(
-            QuestionResult(
-                "${viewModel.getCurrentQuestionIndex()}",
-                (if (selectedAnswerIndex == currentQuestion.correctAnswer) {
-                    "Верно"
-                } else {
-                    "Ошибка"
-                }).toString()
-            )
-        )
-        Log.i("4", "${result.size}")
-    }*/
-
     private fun showResults(bundle: Bundle) {
         fragmentManager
             ?.beginTransaction()
@@ -91,4 +69,9 @@ class StartFragment : BaseFragment<FragmentStartBinding>(
             ?.commit()
     }
 
+    private fun resetCheckBox() {
+        binding.checkbox1.isChecked = false
+        binding.checkbox2.isChecked = false
+        binding.checkbox3.isChecked = false
+    }
 }

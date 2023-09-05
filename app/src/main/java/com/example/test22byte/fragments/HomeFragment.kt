@@ -17,7 +17,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
             goToNextFragment()
         }
     }
-
     private fun goToNextFragment() {
         fragmentManager
             ?.beginTransaction()

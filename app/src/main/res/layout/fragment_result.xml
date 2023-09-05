@@ -23,7 +23,7 @@
         android:id="@+id/count_correct_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/roboto"
         android:textColor="@color/text_color"
         android:textSize="25sp"
@@ -32,16 +32,29 @@
         app:layout_constraintTop_toBottomOf="@id/text_result"
         tools:text="Правильных ответов 5" />
 
+    <Button
+        android:id="@+id/button_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/restart"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/count_correct_answer"
+        app:layout_constraintBottom_toTopOf="@id/recycler_view"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/count_correct_answer"
+        app:layout_constraintTop_toBottomOf="@+id/button_restart"
         tools:listitem="@layout/item_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

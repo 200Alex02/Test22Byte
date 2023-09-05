@@ -43,6 +43,9 @@ class QuizViewModel : ViewModel() {
                 )
             )
         }
+        if (count == 10) {
+            count = 0
+        }
     }
 
     fun getCurrentQuestionIndex(): Int {
