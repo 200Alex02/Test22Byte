@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Test22Byte</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="play">PLAY</string>
+    <string name="match_the_cover_of_the_book_with_its_first_line">MATCH THE COVER OF THE BOOK WITH ITS FIRST LINE</string>
+    <string name="result">Result</string>
+</resources>
