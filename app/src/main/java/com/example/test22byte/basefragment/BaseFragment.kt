@@ -25,4 +25,5 @@ abstract class BaseFragment<VB : ViewBinding>(
 
         return binding.root
     }
+    //тест пул
 }
