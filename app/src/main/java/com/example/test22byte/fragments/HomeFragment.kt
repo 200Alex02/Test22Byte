@@ -9,7 +9,7 @@ import com.example.test22byte.databinding.FragmentHomeBinding
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {
-
+    //testTwoComments
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
