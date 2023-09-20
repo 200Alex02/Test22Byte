@@ -12,7 +12,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // testInfo
         binding.buttonPlay.setOnClickListener {
             goToNextFragment()
         }
